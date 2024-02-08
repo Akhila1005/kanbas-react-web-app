@@ -93,14 +93,31 @@
           </ol>
         </nav>
         <div class=" float-end">
-        <button class="btn btn-outline-secondary">Collapse All</button>
-        <button class="btn btn-outline-secondary">View Progress</button>
-        <select>
-          <option>Publish All</option>
-          <option>Unpublish All</option>
-          <option>Unpublish All</option>
-        </select>
-        <button class="btn btn-danger"> + Module</button>
+          <button class="btn btn-light m-2">Collapse All</button>
+          <button class="btn btn-light m-2">View Progress</button>
+          <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          >
+          <i class="fa fa-check-circle text-success" aria-hidden="true"></i>Publish All</button>
+          <ul class="dropdown-menu">
+          <li>
+          <a href="#" class="dropdown-item active">Publish All</a>
+          </li>
+          <li>
+          <a href="#" class="dropdown-item">Unpublish All</a>
+          </li>
+          </ul>
+          <button class="btn btn-danger">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          Module
+          </button>
+          <button class="btn btn-light">
+          <i class="fa fa-ellipsis-v mt-1 mb-1"></i>
+          </button>
       </div>
       <br>
         <hr />
