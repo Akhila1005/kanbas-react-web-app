@@ -26,20 +26,26 @@ function Grades() {
                     <td> 
                     </td>
                     <td>
-                        <div className = "float-end">
-                        <button className="btn btn-outline-dark" id="select-import"><FaFileImport/>Import</button>
-                            <button className="btn btn-outline-dark" id="select-export"><FaFileExport/>
-                                <select style={{border:0}}>
-                                <option value="Export">Export</option>
-                                </select>
-                            </button>
-                            <button className="btn btn-outline-dark"><FaCog/></button>
-                        </div>
+                    <div className="float-end">
+    <button className="btn btn-outline-dark" id="select-import" style={{ marginRight: '5px' }}>
+        <FaFileImport /> Import
+    </button>
+    <button className="btn btn-outline-dark" id="select-export" style={{ marginRight: '5px' }}>
+        <FaFileExport />
+        <select style={{ border: 0 }}>
+            <option value="Export">Export</option>
+        </select>
+    </button>
+    <button className="btn btn-outline-dark" style={{ marginRight: '5px' }}>
+        <FaCog />
+    </button>
+</div>
+
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label htmlFor="text-fields-name"><h3>Student Names</h3></label>
+                        <label htmlFor="text-fields-name"><h4>Student Names</h4></label>
                         <div className="input-group">
                             <span className="input-group-text"><FaSearch/></span>
                             <input className="form-control" placeholder="Search Student" />
@@ -47,7 +53,7 @@ function Grades() {
                         </div>
                     </td>
                     <td>
-                        <label htmlFor="text-fields-assignment"><h3>Assignment Names</h3></label>
+                        <label htmlFor="text-fields-assignment"><h4>Assignment Names</h4></label>
                         <div className="input-group">
                             <span className="input-group-text"><FaSearch/></span>
                             <input className="form-control" placeholder="Search Assignments" />
@@ -58,7 +64,7 @@ function Grades() {
             </tbody>
         </table>
         <br/>
-        <button className="btn btn-outline-secondary"><FaFilter/>Apply Filters</button><br/><br/>
+        <button className="btn btn-outline-dark"><FaFilter/>Apply Filters</button><br/><br/>
         <table className="table table-striped">
           <thead className="thead-light">
             <th>Student Name</th>

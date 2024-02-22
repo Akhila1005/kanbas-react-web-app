@@ -21,11 +21,18 @@ function Assignments() {
     <div className="d-flex">
     <div className="flex-fill">
       <span>
-        <span className="float-end">
-          <button className="btn btn-outline-secondary"><FaPlus/> Group</button>
-          <button className="btn btn-danger"><FaPlus/> Assignment</button>
-          <button className="btn btn-outline-secondary"><FaEllipsisV/></button>
-        </span>
+      <span className="float-end">
+    <button className="btn btn-outline-secondary" style={{ marginRight: '5px' }}>
+        <FaPlus /> Group
+    </button>
+    <button className="btn btn-danger" style={{ marginRight: '5px' }}>
+        <FaPlus /> Assignment
+    </button>
+    <button className="btn btn-outline-secondary" style={{ marginRight: '5px' }}>
+        <FaEllipsisV />
+    </button>
+</span>
+
         <input type="text" className="form-control w-50" id="assignmentSearch" placeholder="Search for Assignment"/>
       </span>
       </div>
