@@ -1,0 +1,74 @@
+[
+    {
+        "_id": "A1",
+        "title": "A1 - ENV + HTML",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Jan 25, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A2",
+        "title": "A2 - CSS + BOOTSTRAP",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Feb 8, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A3",
+        "title": "Nozzle Design Project",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Due Feb 1 at 11:59pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A201",
+        "title": "A3 - JS",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Feb 22, 2024 at 11:59 pm ",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A4",
+        "title": "A4 - STATE",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "March 14, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A5",
+        "title": "A5 - NODE",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "March 28, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "A6",
+        "title": "A6 - MONGO",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "April 11, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "Q1",
+        "title": "Q1 - HTML",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Jan 25, 2024 at 11:59 pm",
+        "points": "100 pts"
+    },
+    {
+        "_id": "Q2",
+        "title": "Q2",
+        "course": "CS5620",
+        "module": "Multiple Modules",
+        "due": "Feb 1, 2024 at 11:59 pm",
+        "points": "100 pts"
+    }
+]
