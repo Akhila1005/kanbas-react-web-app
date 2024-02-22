@@ -4,6 +4,7 @@ import "./index.css";
 import { modules,courses } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaArrowDown, FaCaretDown, FaCaretRight, FaLink } from "react-icons/fa";
 import { useParams } from "react-router";
+import { HiMiniBars3 } from "react-icons/hi2";
 function ModuleList() {
   type Module = {
     _id: string;
@@ -27,9 +28,9 @@ function ModuleList() {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
-              {course?.name}</a></li>
+              <HiMiniBars3 />  {course?.name}</a></li>
               <li className="breadcrumb-item active" aria-current="page">
-    <span>Modules</span>
+    <span >Modules</span>
   </li>
           </ol>
         </nav>

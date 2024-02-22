@@ -2,6 +2,7 @@ import React from "react";
 import { FaCaretDown, FaCheckCircle, FaEdit, FaEllipsisV, FaList, FaListAlt, FaPlus, FaPlusCircle, FaRegPlusSquare } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { courses,assignments } from "../../Database";
+import { HiMiniBars3 } from "react-icons/hi2";
 function Assignments() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
@@ -12,7 +13,7 @@ function Assignments() {
     <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
-              {course?.name}</a></li>
+              <HiMiniBars3/>{course?.name}</a></li>
               <li className="breadcrumb-item active" aria-current="page">
     <span>Assignments</span>
   </li>

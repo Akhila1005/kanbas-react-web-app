@@ -1,6 +1,7 @@
 import { FaArrowDown, FaCog, FaEllipsisV, FaFileExport, FaFileImport, FaFilter, FaSearch, FaSignOutAlt } from "react-icons/fa";
 import { assignments,enrollments, grades, users,courses } from "../../Database";
 import { useParams } from "react-router-dom";
+import { HiMiniBars3 } from "react-icons/hi2";
 function Grades() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
@@ -12,7 +13,7 @@ function Grades() {
          <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
-              {course?.name}</a></li>
+              <HiMiniBars3/>{course?.name}</a></li>
               <li className="breadcrumb-item active" aria-current="page">
     <span >Grades</span>
   </li>
