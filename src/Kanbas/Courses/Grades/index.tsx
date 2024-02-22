@@ -14,7 +14,7 @@ function Grades() {
               <li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
               {course?.name}</a></li>
               <li className="breadcrumb-item active" aria-current="page">
-    <span className="text-danger">Grades</span>
+    <span >Grades</span>
   </li>
           </ol>
         </nav>

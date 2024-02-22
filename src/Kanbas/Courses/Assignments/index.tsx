@@ -14,7 +14,7 @@ function Assignments() {
               <li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
               {course?.name}</a></li>
               <li className="breadcrumb-item active" aria-current="page">
-    <span className="text-danger">Assignments</span>
+    <span>Assignments</span>
   </li>
           </ol>
         </nav>
