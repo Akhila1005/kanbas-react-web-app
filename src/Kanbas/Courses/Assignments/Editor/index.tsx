@@ -15,8 +15,9 @@ function AssignmentEditor() {
   return (
     <div className="flex-fill">
         <span className="float-end">
-            <FaCheckCircle className="text-success"/> Published
-            <button className="btn btn-outline-secondary"><FaEllipsisV/></button>
+        
+    <FaCheckCircle className="text-success"/> Published
+    <button className="btn btn-outline-secondary ms-2"><FaEllipsisV/></button>
         </span><br/>
         <hr/>  
         <div className="mb-3">
