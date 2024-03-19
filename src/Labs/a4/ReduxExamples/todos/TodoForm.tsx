@@ -13,8 +13,9 @@ function TodoForm(
         value={todo.title}
         onChange={(e) => dispatch(setTodo({ ...todo, title: e.target.value }))}
       />
-      <button onClick={() => dispatch(addTodo(todo))}className="btn btn-success" style={{marginLeft:'10px', marginRight : '10px'}}> Add </button>
-      <button onClick={() => dispatch(updateTodo(todo))}className="btn btn-warning" > Update </button>
+      <button onClick={() => dispatch(updateTodo(todo))}className="btn btn-warning" style={{marginLeft:'10px', marginRight : '10px'}}> Update </button>
+      <button onClick={() => dispatch(addTodo(todo))}className="btn btn-success" > Add </button>
+      
       
     </li>
   );
