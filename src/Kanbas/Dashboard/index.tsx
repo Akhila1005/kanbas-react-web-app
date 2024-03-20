@@ -47,10 +47,12 @@ function Dashboard() {
              onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
             <div className="d-flex justify-content-between align-items-center">
     <h2>Published Courses (4)</h2>
-    <button onClick={addNewCourse} className="btn btn-secondary">Add</button>
-    <button onClick={updateCourse} className="btn btn-secondary"> Update</button>
-              </div>
-               <hr />
+    <div className="d-flex gap-2">
+        <button onClick={addNewCourse} className="btn btn-primary">Add</button>
+        <button onClick={updateCourse} className="btn btn-success">Update</button>
+    </div>
+</div>
+<hr />
             <div className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
                     {courses.map((course) => (
