@@ -5,14 +5,26 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
 import { deleteAssignment } from "./assignmentsReducer";
+import { HiMiniBars3 } from "react-icons/hi2";
+import { courses } from "../../Database";
 function Assignments() {
     const { courseId } = useParams();
+    const course = courses.find((course) => course._id === courseId);
     const assignmentList = useSelector((state: KanbasState) =>
         state.assignmentReducer.assignments);
     const dispatch = useDispatch();
 
     return (
         <>
+        <nav aria-label="breadcrumb">
+<ol className="breadcrumb">
+<li className="breadcrumb-item"><a href=""className="text-danger" style={{"textDecoration": "none"}}>
+<HiMiniBars3/>{course?.name}</a></li>
+<li className="breadcrumb-item active" aria-current="page">
+<span>Assignments</span>
+</li>
+</ol>
+</nav>
             <div className="d-flex">
                 <input className="form-control order-0 w-25 mx-2 border"
                     placeholder="Search for Assignment" />
