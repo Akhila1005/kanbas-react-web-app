@@ -53,10 +53,10 @@ function ModuleList() {
                         />
                     </div>
                     <div className="d-flex justify-content-between" style={{ width: '30%', borderLeft: 'none'}}> 
-                    <button className="btn btn-primary rounded"style={{ marginLeft:'150px',width: '25%', height: '35%'}}  onClick={() => dispatch(updateModule(module))}>
+                    <button className="btn btn-primary rounded"style={{ marginLeft:'110px',width: '25%', height: '35%'}}  onClick={() => dispatch(updateModule(module))}>
                             Update
                         </button>
-                        <button className="btn btn-success mb-2 rounded" style={{ marginLeft:'10px',width: '25%', height: '35%' }}  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+                        <button className="btn btn-success mb-2 rounded" style={{ marginLeft:'5px',width: '25%', height: '35%' }}  onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
                             Add
                         </button>
                         

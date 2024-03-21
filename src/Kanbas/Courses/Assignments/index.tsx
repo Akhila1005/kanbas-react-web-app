@@ -1,4 +1,3 @@
-
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle, FaEdit, FaCaretDown } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
@@ -11,7 +10,7 @@ function Assignments() {
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
     const assignmentList = useSelector((state: KanbasState) =>
-        state.assignmentReducer.assignments);
+        state.assignmentsReducer.assignments);
     const dispatch = useDispatch();
 
     return (
