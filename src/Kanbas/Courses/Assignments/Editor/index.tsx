@@ -1,120 +1,141 @@
-import React from "react";
+import "./index.css";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
-import { FaCheckCircle, FaEllipsisV } from "react-icons/fa";
-function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  const assignment = assignments.find(
-    (assignment) => assignment._id === assignmentId);
-  const { courseId } = useParams();
-  const navigate = useNavigate();
-  const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
-  return (
-    <div className="flex-fill">
-        <span className="float-end">
-        
-    <FaCheckCircle className="text-success"/> Published
-    <button className="btn btn-outline-secondary ms-2"><FaEllipsisV/></button>
-        </span><br/>
-        <hr/>  
-        <div className="mb-3">
-            <h2>Assignment Name</h2>
-            <input value={assignment?.title} className="form-control mb-2" />
-        </div>
-        <div className="mb-3 row">
-            <div className="col-md-6">
-                <textarea className="form-control" id="assignmentDescription">This is the assignment description.</textarea>
-            </div>
-        </div>
-            
-        <div className="mb-3 row">
-            <label htmlFor="points" className="form-label col-sm-2">Points</label>
-            <div className="col-md-4">
-                <input type="number" className="form-control" id="points" value="100"/>
-            </div>
-        </div>
-            
-        <div className="mb-3 row">
-            <label htmlFor="assignmentGroup" className="form-label col-sm-2">Assignment Group</label>
-            <div className="col-md-4">
-            <select className="form-control" id="assignmentGroup">
-                <option>ASSIGNMENT</option>
-                <option>QUIZ</option>
-                <option>EXAM</option>
-                <option>PROJECT</option>
-            </select>
-            </div>
-        </div>
-            
-        <div className="mb-3 row align-items-center">
-            <label htmlFor="displayGradeAs" className="form-label col-sm-2">Display Grade as</label>
-            <div className="col-md-4">
-            <select className="form-control" id="displayGradeAs">
-                <option>Percentage</option>
-            </select>
-            </div>
-        </div>
-            
-        <div className="mb-3">
-            <input type="checkbox" className="form-check-input" id="checkbox" name="online-entry-options"/>
-            <label className="form-check-label" htmlFor="checkboc">Do not count this assignment towards the final grade</label><br />      
-        </div>
+import { useDispatch, useSelector } from "react-redux";
+import { KanbasState } from "../../../store";
+import { addAssignment, setAssignment, updateAssignment } from "../assignmentsReducer";
+import { useEffect } from "react";
+import * as client from "../client";
 
-        <div className="col-lg-6">
+function AssignmentEditor() {
+    const { assignmentId } = useParams();
+
+    const assignmentList = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignments);
+    const assignment = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignment);
+
+    const { courseId } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleAddAssignment = () => {
+        client.createAssignment(courseId, assignment).then((assignment) => {
+            dispatch(addAssignment(assignment));
+        });
+    };
+
+    const handleUpdateAssignment = async () => {
+        const status = await client.updateAssignment(assignment);
+        dispatch(updateAssignment(assignment));
+    };
+
+    const handleSave = () => {
+        if (assignmentId !== undefined) {
+            if (!assignmentId.localeCompare("Editor")) {
+                //dispatch(addAssignment({ ...assignment, course: courseId }));
+                handleAddAssignment()
+            } else {
+                //dispatch(updateAssignment(assignment));
+                handleUpdateAssignment()
+            }
+        }
+        navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    };
+
+    useEffect(() => {
+        if (assignmentId !== undefined) {
+            if (assignmentId.localeCompare("Editor")) {
+                const a = assignmentList.find(
+                    (assignment) => assignment._id === assignmentId
+                );
+                dispatch(setAssignment(a));
+            }
+        }
+    }, []);
+
+    return (
+        <div className="container">
+            <h3>Assignment Name</h3>
+            <input type="text" value={assignment?.title}
+                className="form-control mb-2"
+                onChange={(e) =>
+                    dispatch(
+                        setAssignment({
+                            ...assignment,
+                            title: e.target.value,
+                        })
+                    )
+                }
+            />
+            <br />
+            <div className="form-group">
+                <textarea className="form-control" id="assignmentDescription" rows={3} value={assignment?.description}
+                    onChange={(e) =>
+                        dispatch(setAssignment({ ...assignment, description: e.target.value }))
+                    }>
+                </textarea>
+            </div>
+            <br />
             <div className="row">
-                <div className="col-md-4">
-                    <label htmlFor="displayGradeAs" className="form-label">Assign</label>
-                </div> 
-            <div className="col-lg-7">
-                <div className="list-group">
-                    <div className="list-group-item">
-                        <label htmlFor="assignTo" className="form-label">Assign to</label>
-                        <input type="text" className="form-control" value="Everyone" />
-                    </div>
-                    <div className="list-group-item">
-                        <label htmlFor="dueDate" className="form-label">Due Date</label>
-                        <input type="date" className="form-control" value="2020-09-01" />
-                    </div>
-                    <div className="list-group-item">
+                <div className="col-md-4 text-end">
+                    <label className="mx-3">Points</label>
+                </div>
+                <div className="col-md-8">
+                    <input type="number" className="form-control" value={assignment?.points}
+                        onChange={(e) =>
+                            dispatch(setAssignment({ ...assignment, points: e.target.value }))
+                        } />
+                </div>
+            </div>
+            <br />
+            <div className="row">
+                <div className="col-md-4 text-end">
+                    <label>Assign</label>
+                </div>
+                <div className="col-md-8">
+                    <div className="border p-2">
+                        <label><b>Due</b></label>
+                        <input className="form-control" type="date" value={assignment?.dueDate}
+                            onChange={(e) =>
+                                dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
+                            } />
+                        <br />
                         <div className="row">
                             <div className="col-md-6">
-                                <label htmlFor="availableFrom" className="form-label">Available from</label>
-                                <input type="date" className="form-control" value="2020-09-01" />
+                                <label><b>Available from</b></label>
+                                <input className="form-control w-30" type="date" value={assignment?.availableFromDate}
+                                    onChange={(e) =>
+                                        dispatch(setAssignment({ ...assignment, availableFromDate: e.target.value }))
+                                    } />
                             </div>
                             <div className="col-md-6">
-                                <label htmlFor="until" className="form-label">Until</label>
-                                <input type="date" className="form-control" value="2020-09-01" />
+                                <label><b>Until</b></label>
+                                <input className="form-control w-30" type="date" value={assignment?.availableUntilDate}
+                                    onChange={(e) =>
+                                        dispatch(setAssignment({ ...assignment, availableUntilDate: e.target.value }))
+                                    } />
                             </div>
                         </div>
-                    </div>
-                    <div className="list-group-item text-center">
-                        <p className="m-0">+ Add</p>
+                        <br />
                     </div>
                 </div>
             </div>
+            <hr />
+            <div className="d-flex justify-content-end">
+                <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    className="btn btn-secondary me-2 float-end">
+                    Cancel
+                </Link>
+                <button onClick={handleSave} className="btn btn-danger me-2">
+                    Save
+                </button>
             </div>
+            <hr />
         </div>
-      <hr/>
-      <div className="mb-3 row">
-        <div className="col-sm-8">
-          <input type="checkbox" className="form-check-input" id="checkbox" name="online-entry-options"/>
-          <label className="form-check-label" htmlFor="checkbox">Notify users that this content has changed</label>
-        </div>
-        <div className="col-sm-4 text-end">
-        <button onClick={handleSave} className="btn btn-success ms-2 float-end">
-        Save
-      </button>
-      <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
-            className="btn btn-danger float-end">
-        Cancel
-      </Link>
-        </div>
-      </div>
-      <hr/>
-    </div>
-  );
+    );
 }
 export default AssignmentEditor;
+
+function dispatch(arg0: { payload: any; type: "assignments/updateAssignment"; }) {
+    throw new Error("Function not implemented.");
+}
