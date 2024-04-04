@@ -36,20 +36,20 @@ function EncodingParametersInURLs() {
           <input className="form-control" value={result} type="number" readOnly />
         </div>
       <h3>Fetch Result</h3>
-      <button onClick={() => fetchSum(a, b)} className="btn btn-primary">
+      <button onClick={() => fetchSum(a, b)} className="btn btn-primary" style={{ marginRight: '10px' }}>
         Fetch Sum of {a} + {b}
       </button>
       <button onClick={() => fetchSubtraction(a, b)} className="btn btn-danger" >
         Fetch Substraction of {a} - {b}
       </button>
       <h3>Path Parameters</h3>
-      <a href={`${API_BASE}/a5/add/${a}/${b}`} className="btn btn-primary">
+      <a href={`${API_BASE}/a5/add/${a}/${b}`} className="btn btn-primary" style={{ marginRight: '10px' }}>
         Add {a} + {b}
       </a>
-      <a href={`${API_BASE}/a5/subtract/${a}/${b}`} className="btn btn-danger">
+      <a href={`${API_BASE}/a5/subtract/${a}/${b}`} className="btn btn-danger" style={{ marginRight: '10px' }}>
         Subtract {a} - {b}
       </a>
-      <a href={`${API_BASE}/a5/multiply/${a}/${b}`} className="btn btn-warning">
+      <a href={`${API_BASE}/a5/multiply/${a}/${b}`} className="btn btn-warning" style={{ marginRight: '10px' }}>
         Multiply {a} * {b}
       </a>
       <a href={`${API_BASE}/a5/divide/${a}/${b}`} className="btn btn-success">
@@ -57,15 +57,15 @@ function EncodingParametersInURLs() {
       </a>
       <h3>Query Parameters</h3>
       <a className="btn btn-primary"
-        href={`${API_BASE}/a5/calculator?operation=add&a=${a}&b=${b}`}>
+        href={`${API_BASE}/a5/calculator?operation=add&a=${a}&b=${b}`} style={{ marginRight: '10px' }}>
         Add {a} + {b}
       </a>
       <a className="btn btn-danger"
-        href={`${API_BASE}/a5/calculator?operation=subtract&a=${a}&b=${b}`}>
+        href={`${API_BASE}/a5/calculator?operation=subtract&a=${a}&b=${b}`} style={{ marginRight: '10px' }}>
         Substract {a} - {b}
       </a>
       <a className="btn btn-warning"
-        href={`${API_BASE}/a5/calculator?operation=multiply&a=${a}&b=${b}`}>
+        href={`${API_BASE}/a5/calculator?operation=multiply&a=${a}&b=${b}`} style={{ marginRight: '10px' }}>
         Multiply {a} * {b}
       </a>
       <a className="btn btn-success"

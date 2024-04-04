@@ -33,7 +33,7 @@ function WorkingWithObjects() {
       <input onChange={(e) => setAssignment({
             ...assignment, title: e.target.value })}
         value={assignment.title} type="text" className="form-control mb-2" />
-      <button onClick={updateTitle} className="btn btn-primary">
+      <button onClick={updateTitle} className="btn btn-primary" style={{ marginRight: '10px' }}>
         Update Title to: {assignment.title}
       </button>
       <button onClick={fetchAssignment} className="btn btn-success" >
@@ -111,14 +111,14 @@ function WorkingWithObjects() {
         </div>
       </div>
       <h4>Retrieving Objects</h4>
-      <a href={API_BASE + "/a5/assignment"} className="btn btn-primary">
+      <a href={API_BASE + "/a5/assignment"} className="btn btn-primary"style={{ marginRight: '10px' }}>
         Get Assignment
       </a>
       <a href={API_BASE + "/a5/module"} className="btn btn-danger">
         Get Module
       </a>
       <h4>Retrieving Properties</h4>
-      <a href={API_BASE + "/a5/assignment/title"} className="btn btn-primary">
+      <a href={API_BASE + "/a5/assignment/title"} className="btn btn-primary" style={{ marginRight: '10px' }}>
         Get Title
       </a>
       <a href={API_BASE + "/a5/module/name"} className="btn btn-danger">
