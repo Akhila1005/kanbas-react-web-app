@@ -187,10 +187,10 @@ function WorkingWithArrays() {
                   {todo.title}
                   <p>{todo.description}</p>
                   <p>{todo.due}</p>
-                  <button onClick={() => removeTodo(todo)} className="btn btn-danger">
+                  <button onClick={() => removeTodo(todo)} className="btn btn-danger" style={{ marginRight: '10px' }}>
                     Remove
                   </button>
-                  <button onClick={() => fetchTodoById(todo.id)} className="btn btn-warning" >
+                  <button onClick={() => fetchTodoById(todo.id)} className="btn btn-warning" style={{ marginRight: '10px' }}>
                     Edit  
                   </button>
                   <button onClick={() => deleteTodo(todo)}
