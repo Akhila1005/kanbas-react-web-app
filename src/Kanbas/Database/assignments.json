@@ -7,5 +7,5 @@
     { "_id": "A203", "title": "Heating Analysis", "course": "RS102", "module": "Multiple Modules", "due": "Due Feb 8 at 11:59pm", "points": "100 pts" },
     { "_id": "A301", "title": "Structural Design Task", "course": "RS103", "module": "Multiple Modules", "due": "Due Feb 1 at 11:59pm", "points": "100 pts" },
     { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "module": "Multiple Modules", "due": "Due Feb 8 at 11:59pm", "points": "100 pts" },
-    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "module": "Multiple Modules", "due": "Due Feb 15 at 11:59pm", "points": "100 pts" }
+    { "_id": "A303", "title": "Systems Engineerig Exam", "course": "RS103", "module": "Multiple Modules", "due": "Due Feb 15 at 11:59pm", "points": "100 pts" }
   ]
