@@ -10,7 +10,9 @@ import Grades from "./Grades";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
+const api = axios.create({
+  withCredentials: true
+});
 const API_BASE = process.env.REACT_APP_BASE_API;
 
 
@@ -49,4 +51,3 @@ function Courses() {
   );
 }
 export default Courses;
-

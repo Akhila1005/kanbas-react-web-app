@@ -29,7 +29,6 @@ function Kanbas() {
   });
   const addNewCourse = async () => {
     const response = await axios.post(COURSES_API, course);
-    console.log(response.data);
     setCourses([ ...courses, response.data ]);
   };
   const deleteCourse = async (courseId: string) => {
