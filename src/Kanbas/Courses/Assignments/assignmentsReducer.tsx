@@ -20,7 +20,7 @@ const assignmentsSlice = createSlice({
         },
 
         addAssignment: (state: any, action) => {
-            state.assignments = [action.payload, ...state.modules];
+            state.assignments = [action.payload, ...state.assignments];
         },
 
         deleteAssignment: (state, action) => {

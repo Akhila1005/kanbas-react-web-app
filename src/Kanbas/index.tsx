@@ -1,4 +1,5 @@
-import "../libs/bootstrap/bootstrap.min.css";
+import"../libs/bootstrap/bootstrap.min.css";
+import Account from "./Account";
 import KanbasNavigation from "./Navigation";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
@@ -9,7 +10,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 
 
-const API_BASE = process.env.REACT_APP_API_BASE;
+const API_BASE = process.env.REACT_APP_BASE_API;
 
 function Kanbas() {
   const [courses, setCourses] = useState<any[]>([]);
@@ -28,6 +29,7 @@ function Kanbas() {
   });
   const addNewCourse = async () => {
     const response = await axios.post(COURSES_API, course);
+    console.log(response.data);
     setCourses([ ...courses, response.data ]);
   };
   const deleteCourse = async (courseId: string) => {
@@ -56,10 +58,10 @@ function Kanbas() {
       <div className="d-flex">
          <div><KanbasNavigation /></div>
          <div>
-            <Routes>
-               <Route path="/" element={<Navigate to="Dashboard" />} />
-               <Route path="Account" element={<h1>Account</h1>} />
-               <Route path="Dashboard" element={
+         <Routes>
+          <Route path="/" element={<Navigate to="Dashboard" />} />
+          <Route path="/Account/*" element={<Account />} />
+          <Route path="Dashboard" element={
             <Dashboard
               courses={courses}
               course={course}
@@ -68,9 +70,8 @@ function Kanbas() {
               deleteCourse={deleteCourse}
               updateCourse={updateCourse}/>
           } />
-
-<Route path="Courses/:courseId/*" element={<Courses />} />
-            </Routes>
+          <Route path="Courses/:courseId/*" element={<Courses />} />
+        </Routes>
          </div>
       </div>
       </Provider>

@@ -3,7 +3,7 @@ import WorkingWithArrays from "./WorkingWithArrays";
 import WorkingWithObjects from "./WorkingWithObjects";
 
 function Assignment5() {
-  const API_BASE = process.env.REACT_APP_API_BASE;
+  const API_BASE = process.env.REACT_APP_BASE_API;
     return (
       <div>
         <h1>Assignment 5</h1>
